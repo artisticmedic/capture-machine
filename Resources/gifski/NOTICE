@@ -1,0 +1,16 @@
+Capture Machine makes GIFs with gifski 1.34.0 by Kornel Lesiński, https://gif.ski
+
+gifski is licensed under the GNU Affero General Public License, version 3 or later (LICENSE, beside this file). GIF
+Machine runs it as a separate program, gifski, inside the app's Helpers folder. Its source:
+https://github.com/ImageOptim/gifski/tree/1.34.0 and https://crates.io/crates/gifski/1.34.0
+
+It is built without FFmpeg: cargo install gifski --version 1.34.0 --no-default-features --features binary,gifsicle
+
+
+The helper includes imagequant 4.4.1 (GPL-3.0-or-later), with code by Jef Poskanzer, Greg Roelofs and Kornel Lesiński.
+Its full COPYRIGHT, including the original pngquant notice, is reproduced in THIRD-PARTY.txt with the other dependency licenses.
+https://crates.io/crates/imagequant/4.4.1
+
+Each Capture Machine release offers gifski-1.34.0-source.tar.gz alongside the disk image. It includes the corresponding
+source, locked dependencies, licensing files and offline build instructions.
+https://github.com/artisticmedic/capture-machine/releases/tag/v1.0.0
