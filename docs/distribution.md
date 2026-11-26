@@ -16,7 +16,7 @@ The disk image and the corresponding encoder source are in .build/distribution. 
 Submit the signed image to Apple using a previously configured notarytool keychain profile. This requires access to the signing team’s account.
 
 ```sh
-image=.build/distribution/Capture-Machine-1.0.0-arm64.dmg
+image=.build/distribution/Capture-Machine-1.0.1-arm64.dmg
 xcrun notarytool submit "$image" --keychain-profile "$NOTARY_PROFILE" --wait
 ```
 
@@ -31,6 +31,6 @@ The script staples the ticket, checks Gatekeeper and the disk image, and writes 
 
 ## Release assets
 
-The v1.0.0 release uses the signed, stapled Capture-Machine-1.0.0-arm64.dmg, gifski-1.34.0-source.tar.gz and SHA256SUMS. The encoder archive includes its Cargo.lock, vendored dependencies and offline build instructions. Keep it available alongside the disk image. The Casks/capture-machine.rb checksum and the product page download must resolve to this release. Check a fresh download on a clean Mac before announcing it.
+The v1.0.1 release uses the signed, stapled Capture-Machine-1.0.1-arm64.dmg, gifski-1.34.0-source.tar.gz and SHA256SUMS. The encoder archive includes its Cargo.lock, vendored dependencies and offline build instructions. Keep it available alongside the disk image. The Casks/capture-machine.rb checksum and the product page download must resolve to this release. Check a fresh download on a clean Mac before announcing it.
 
 The installer copies Resources/InstallerLayout into the disk image as Finder’s .DS_Store. It places Capture Machine on the left and Applications on the right in icon view. The volume title tells the user to drag the app to Applications. The layout is static metadata, so building a release does not require opening Finder. [DS_Store format and editing](https://ds-store.readthedocs.io/en/latest/)

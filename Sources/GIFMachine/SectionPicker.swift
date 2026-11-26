@@ -39,6 +39,7 @@ private final class PickerWindow: NSWindow {
 final class SectionPicker {
     private let window: PickerWindow
     let view: PickerView
+    private var previousApp: NSRunningApplication?
 
     init(screen: NSScreen, tool: Tool, style: PickerStyle) {
         window = PickerWindow(screen: screen)
@@ -48,15 +49,24 @@ final class SectionPicker {
     }
 
     func show() {
+        let front = NSWorkspace.shared.frontmostApplication
+        previousApp = front == .current ? nil : front
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
         window.makeFirstResponder(view)
         view.updateCursor()
     }
 
+    /// Hands focus back to the app that was in front. Otherwise this app stays active with no window, and the first click
+    /// in the app being recorded only brings it forward: Safari, for one, does not pass that click to the page.
     func close() {
         window.orderOut(nil)
         NSCursor.arrow.set()
+        if let previousApp, !previousApp.isTerminated {
+            NSApp.yieldActivation(to: previousApp)
+            previousApp.activate(from: .current, options: [])
+        }
+        previousApp = nil
     }
 }
 

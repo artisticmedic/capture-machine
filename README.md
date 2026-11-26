@@ -4,7 +4,7 @@ Record a window, a region, or your whole screen from the Mac menu bar. Capture M
 
 ## Install
 
-Download **Capture-Machine-1.0.0-arm64.dmg**, open it, and drag Capture Machine to Applications. Version 1.0.0 requires an Apple Silicon Mac and macOS 15 or later. [Releases](https://github.com/artisticmedic/capture-machine/releases)
+Download **Capture-Machine-1.0.1-arm64.dmg**, open it, and drag Capture Machine to Applications. Version 1.0.1 requires an Apple Silicon Mac and macOS 15 or later. [Releases](https://github.com/artisticmedic/capture-machine/releases)
 
 To install the same disk image with Homebrew:
 
